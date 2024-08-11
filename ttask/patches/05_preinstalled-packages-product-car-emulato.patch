@@ -1,0 +1,13 @@
+diff --git a/common/preinstalled-packages-product-car-emulator.xml b/common/preinstalled-packages-product-car-emulator.xml
+index a22118f..623eb81 100644
+--- a/common/preinstalled-packages-product-car-emulator.xml
++++ b/common/preinstalled-packages-product-car-emulator.xml
+@@ -81,7 +81,7 @@
+     </install-in-user-type>
+ 
+     <!-- Required when sysui queries for system user apps to handle the home intent -->
+-    <install-in-user-type package="com.android.car.carlauncher">
++    <install-in-user-type package="com.android.car.mccarlauncher">
+         <install-in user-type="FULL" />
+         <install-in user-type="SYSTEM" />
+     </install-in-user-type>
