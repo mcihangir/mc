@@ -1,8 +1,8 @@
 Tasks Accomplished:
-	Custom AAOSP Image: mc_car_x86
- 	Custom Launcher: MCCarLauncher
-  	Native Application: mcnativeapp
-   	Android Application: mcandroidautoapp
+	1. Custom AAOSP Image: mc_car_x86
+ 	2. Custom Launcher: MCCarLauncher
+  	3. Native Application running at startup: mcnativeapp
+   	4. Android Application consuming VHAL: mcandroidautoapp
 
 Follow the steps below: 
 
