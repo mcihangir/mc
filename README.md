@@ -1,13 +1,13 @@
 Tasks Accomplished:
 	Custom AAOSP Image: mc_car_x86
-	Custom Launcher: MCCarLauncher
-	Native Application: mcnativeapp
-	Android Application: mcandroidautoapp
+ 	Custom Launcher: MCCarLauncher
+  	Native Application: mcnativeapp
+   	Android Application: mcandroidautoapp
 
 Follow the steps below: 
 
 	1. Preparation & Installation "MC Device" to AOSP 12
-	2. Confirmation the custom image and custom Launcher
+	2. Confirmation of the custom image and custom Launcher
 	3. Confirmation the VHAL enabled on the image
 	4. Confirmation "mcnativeapp" native application
 	5. Confirmation "mcandroidautoapp" Android Application
@@ -17,7 +17,7 @@ Follow the steps below:
 1.1 Download AOSP 12 to Development PC
 	Development PC: Ubuntu 20.04 with 450GB Disk and 28GB RAM
 
-	To install required packages on the development PC
+	To install the required packages on the development PC
 	$ sudo apt-get install git-core gnupg flex bison build-essential zip curl zlib1g-dev libc6-dev-i386 x11proto-core-dev libx11-dev lib32z1-dev libgl1-mesa-dev libxml2-utils xsltproc unzip fontconfig
 
 	Download AOSP 12 to the development PC
@@ -48,7 +48,7 @@ Follow the steps below:
 
 ======================================================================
 
-2. Confirmation the custom image and custom Launcher
+2. Confirmation of the custom image and custom Launcher
 	Run the emulator from the same terminal after finishing compiling the AOPS
 	$ emulator &
 2.1. Confirming the custom image
@@ -58,7 +58,7 @@ Follow the steps below:
 	The image name should be"mc_car_x86"
 ![image](https://github.com/user-attachments/assets/574bc3aa-d833-42b7-9a25-674dd7e4328e)
 
-2.2. Confirming the custom Launcher
+2.2. Confirming the Custom Launcher
 
 ![image](https://github.com/user-attachments/assets/b9e980d0-150b-41bf-a47a-050fd5293275)
 
