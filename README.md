@@ -65,8 +65,8 @@ Follow the steps below:
 2.1. Confirming the custom image
 
 	Go to the settings
-	![image](https://github.com/user-attachments/assets/6a4a3145-dfdf-4306-a63a-12bb940d797d)
-
+ ![image](https://github.com/user-attachments/assets/d7d96fb9-c8e5-4934-a2b2-d8f5b656965e)
+ 
 	The image name should be"mc_car_x86"
 ![image](https://github.com/user-attachments/assets/574bc3aa-d833-42b7-9a25-674dd7e4328e)
 
