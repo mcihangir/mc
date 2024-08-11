@@ -12,10 +12,13 @@ Follow the steps below:
 	3. Confirmation the VHAL enabled on the image
 	4. Confirmation "mcnativeapp" native application
 	5. Confirmation "mcandroidautoapp" Android Application
+ 
 ======================================================================
 
 1. Preparation & Installation "MC Device" to AOSP 12
-1.1 Download AOSP 12 to Development PC
+   
+1.1. Download AOSP 12 to Development PC
+   
 	Development PC: Ubuntu 20.04 with 450GB Disk and 28GB RAM
 
 	To install the required packages on the development PC
@@ -30,7 +33,8 @@ Follow the steps below:
 	$ repo init -u https://android.googlesource.com/platform/manifest -b android-12.0.0_r2
 	$ repo sync 
 
-1.2 Install the Custom Packages developed for the Task on the default AOSP 12
+1.2. Install the Custom Packages developed for the Task on the default AOSP 12
+
 	$ cd {aosp_root_folder} 
 	$ mkdir vendor
 	$ git clone https://github.com/mcihangir/mc.git   
@@ -41,7 +45,8 @@ Follow the steps below:
 	$ cd vendor/mc/ttask/patches
 	$ ./00_install_mcdevice.sh
 
-1.3 Build AOSP12 Custom Image
+1.3. Build AOSP12 Custom Image
+
 	$ source build/envsetup.sh
 	$ lunch mc_car_x86-userdebug
 	$ make -j4
@@ -50,6 +55,7 @@ Follow the steps below:
 ======================================================================
 
 2. Confirmation of the custom image and custom Launcher
+   
 	Run the emulator from the same terminal after finishing compiling the AOPS
 	$ emulator &
 2.1. Confirming the custom image
@@ -66,6 +72,7 @@ Follow the steps below:
 ======================================================================
 
 3. Confirmation the VHAL enabled on the image
+   
 	Connect to the shell of the Android running on the emulator by using the following command from the same terminal
 	$ adb shell
 	Verify that the VHAL service is started by checking the logcat output:
@@ -79,14 +86,12 @@ vehicle_network 393    1 1 12:09:33 ?     00:00:05 android.hardware.automotive.v
 
 4. Confirmation "mcnativeapp" native application
 
-4.1 Confirming "mcnativeapp" , "mcnativeapp.rc", and "mcdevice.rc" files are installed to the target image
 	$ ls /system/bin/mcnativeapp
 	/system/bin/mcnativeapp
 
 	$ ls /system/etc/init/mc*
 	/system/etc/init/mcnativeapp.rc
 
-4.2 Confirming "init.mcdevice.rc" init script run at the boot time
 	$ dmesg | grep mcdevice
 [    6.554729] init: Added '/system/etc/init/init.mcdevice.rc' to import list
 [    6.584376] init: Parsing file /system/etc/init/init.mcdevice.rc...
@@ -100,7 +105,8 @@ vehicle_network 393    1 1 12:09:33 ?     00:00:05 android.hardware.automotive.v
 [  213.142150] init: processing action (sys.boot_completed=1) from (/system/etc/init/init.mcdevice.rc:6)
 [  213.154886] mcdevice: on property:sys.boot_completed=1
 
-4.3 Confirming the custom design "mcnativeapp" running on the image automatically after booting the image
+4.1. Confirmation the custom design "mcnativeapp" running on the image automatically after booting the image
+
 	$ ps | grep mcnativeapp
 	Checking logs of "mcnativeapp" 
 	$ logcat | grep mcnativeapp
@@ -112,6 +118,7 @@ vehicle_network 393    1 1 12:09:33 ?     00:00:05 android.hardware.automotive.v
 ======================================================================
 
 5. Confirmation "mcandroidautoapp" Android Application
+   
 	Open "Applications" in MCCarLauncher
 	Click "MCAutov2"
 	
