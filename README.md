@@ -11,7 +11,8 @@ Follow the steps below:
 	3. Confirmation the VHAL enabled on the image
 	4. Confirmation "mcnativeapp" native application
 	5. Confirmation "mcandroidautoapp" Android Application
-=========================================================================================================================
+======================================================================
+
 1. Preparation & Installation "MC Device" to AOSP 12
 1.1 Download AOSP 12 to Development PC
 	Development PC: Ubuntu 20.04 with 450GB Disk and 28GB RAM
@@ -45,7 +46,8 @@ Follow the steps below:
 	$ make -j4
 	$ m emu_img_zip -j4
 
-=========================================================================================================================
+======================================================================
+
 2. Confirmation the custom image and custom Launcher
 	Run the emulator from the same terminal after finishing compiling the AOPS
 	$ emulator &
@@ -60,7 +62,8 @@ Follow the steps below:
 
 ![image](https://github.com/user-attachments/assets/b9e980d0-150b-41bf-a47a-050fd5293275)
 
-=========================================================================================================================
+======================================================================
+
 3. Confirmation the VHAL enabled on the image
 	Connect to the shell of the Android running on the emulator by using the following command from the same terminal
 	$ adb shell
@@ -71,7 +74,8 @@ Follow the steps below:
 	$ ps -ef | grep android.hardware.automotive.vehicle
 vehicle_network 393    1 1 12:09:33 ?     00:00:05 android.hardware.automotive.vehicle@2.0-service
 
-=========================================================================================================================
+======================================================================
+
 4. Confirmation "mcnativeapp" native application
 
 4.1 Confirming "mcnativeapp" , "mcnativeapp.rc", and "mcdevice.rc" files are installed to the target image
@@ -103,7 +107,9 @@ vehicle_network 393    1 1 12:09:33 ?     00:00:05 android.hardware.automotive.v
 08-10 12:09:55.565   482   482 D [MCDEV v1.0]: mcnativeapp: 1
 08-10 12:10:05.567   482   482 D [MCDEV v1.0]: mcnativeapp: 2
 08-10 12:10:15.568   482   482 D [MCDEV v1.0]: mcnativeapp: 3
-=========================================================================================================================
+
+======================================================================
+
 5. Confirmation "mcandroidautoapp" Android Application
 	Open "Applications" in MCCarLauncher
 	Click "MCAutov2"
