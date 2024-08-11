@@ -41,7 +41,7 @@ Follow the steps below:
 	OR 
 	$ cp [path]/mc vendor/
 
- 	**The project folder should be like this: {aosp12_root_folder}/vendor/mc**
+ 	**`The project folder should be like this: {aosp12_root_folder}/vendor/mc`**
 
 	Apply patches and copy the necessary files to the default android-12.0.0_r2
 	$ cd vendor/mc/ttask/patches
