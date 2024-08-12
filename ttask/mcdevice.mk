@@ -1,4 +1,4 @@
-# Usage: include this file to device/generic/car/ls mc_car_x86.mk  or aosp_car_x86.mk
+# Usage: include this file to device/generic/car/ mc_car_x86.mk  or aosp_car_x86.mk
 #include vendor/mc/ttask/init.mcdevice.mk
 
 include $(call all-subdir-makefiles)
