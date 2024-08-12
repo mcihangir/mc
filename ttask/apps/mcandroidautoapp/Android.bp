@@ -1,6 +1,6 @@
 prebuilt_etc {
     name: "privapp_whitelist_com.mc.mcandroidautoapp",
-    sub_dir: "permissions",
+#    sub_dir: "permissions",
     src: "com.mc.mcandroidautoapp.xml",
     filename_from_src: true,
 }
