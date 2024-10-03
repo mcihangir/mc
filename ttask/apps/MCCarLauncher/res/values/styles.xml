@@ -35,4 +35,14 @@
         <item name="android:layout_height">@*android:dimen/car_list_divider_height</item>
         <item name="android:background">@*android:color/car_list_divider</item>
     </style>
+
+
+    <!-- tv_speed için özel stil -->
+    <style name="TextAppearance.SpeedTextView" parent="TextAppearance.AppCompat.Large">
+        <item name="android:textSize">24sp</item>
+        <item name="android:textColor">#000000</item> <!-- Siyah renk -->
+        <item name="android:background">#FFFFFF</item> <!-- Beyaz arka plan -->
+        <item name="android:padding">16dp</item> <!-- Kenar boşluğu -->
+    </style>
+
 </resources>

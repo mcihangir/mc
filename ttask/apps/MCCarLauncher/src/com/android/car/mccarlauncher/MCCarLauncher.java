@@ -52,6 +52,14 @@ import android.provider.Settings;
 import android.net.Uri;
 import android.content.Intent;
 
+
+import android.car.Car;
+import android.car.VehiclePropertyIds;
+import android.car.hardware.CarPropertyValue;
+import android.car.hardware.property.CarPropertyManager;
+import android.widget.TextView;
+import android.view.View;
+
 /**
  * Basic Launcher for Android Automotive which demonstrates the use of {@link TaskView} to host
  * maps content and uses a Model-View-Presenter structure to display content in cards.
@@ -82,13 +90,22 @@ public class MCCarLauncher extends FragmentActivity {
     /** Set to {@code true} once we've logged that the Activity is fully drawn. */
     private boolean mIsReadyLogged;
 
+/**Added by MC**/
+//    private static final String TAG = MainActivity.class.getSimpleName();
+    private TextView mTvSpeed;
+    private Car mCar;
+    String[] perms = {"android.car.permission.CAR_SPEED"};
+    int permsRequestCode = 200;
+    CarPropertyManager mCarPropertyManager;
+/****/
+
     // The callback methods in {@code mTaskViewListener} are running under MainThread.
     private final TaskView.Listener mTaskViewListener =  new TaskView.Listener() {
         @Override
         public void onInitialized() {
             if (DEBUG) Log.d(TAG, "onInitialized(" + getUserId() + ")");
             mTaskViewReady = true;
-            startMapsInTaskView();
+//            startMapsInTaskView();
             maybeLogReady();
         }
 
@@ -120,7 +137,7 @@ public class MCCarLauncher extends FragmentActivity {
                         + ", mTaskViewTaskId=" + mTaskViewTaskId);
             }
             if (mFocused && mTaskViewTaskId == INVALID_TASK_ID) {
-                startMapsInTaskView();
+//                startMapsInTaskView();
             }
         }
     };
@@ -128,7 +145,6 @@ public class MCCarLauncher extends FragmentActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-
 
         mCarLauncherTaskId = getTaskId();
         ActivityTaskManager.getInstance().registerTaskStackListener(mTaskStackListener);
@@ -138,6 +154,7 @@ public class MCCarLauncher extends FragmentActivity {
         // To pass touches to the underneath task.
         getWindow().addFlags(WindowManager.LayoutParams.FLAG_NOT_TOUCH_MODAL);
 
+/*
         // Don't show the maps panel in multi window mode.
         // NOTE: CTS tests for split screen are not compatible with activity views on the default
         // activity of the launcher
@@ -153,8 +170,33 @@ public class MCCarLauncher extends FragmentActivity {
                 }
             }
         }
+*/
+        setContentView(R.layout.car_launcher);
+
+        /**Added MC**/
+        mTvSpeed = findViewById(R.id.tv_speed);
+        requestPermissions(perms, permsRequestCode);
+        /****/
+
         initializeCards();
     }
+/**Added MC**/
+    CarPropertyManager.CarPropertyEventCallback mCallBack = new CarPropertyManager.CarPropertyEventCallback() {
+        @Override
+        public void onChangeEvent(CarPropertyValue carPropertyValue) {
+            Log.d(TAG, "onChangeEvent: " + carPropertyValue.toString());
+            if (carPropertyValue.getPropertyId() == VehiclePropertyIds.PERF_VEHICLE_SPEED) {
+                float value = (Float) carPropertyValue.getValue();
+                //mTvSpeed.setText("Speed: " + Math.round(value));
+            }
+        }
+
+        @Override
+        public void onErrorEvent(int i, int i1) {
+            Log.e(TAG, "onErrorEvent: " + i);
+        }
+    };
+/****/
 
     private void setUpTaskView(ViewGroup parent) {
         mTaskViewManager = new TaskViewManager(this,
@@ -177,7 +219,7 @@ public class MCCarLauncher extends FragmentActivity {
         if (mFocused && mTaskViewTaskId == INVALID_TASK_ID) {
             // If the task in TaskView is crashed during CarLauncher is background,
             // We'd like to restart it when CarLauncher becomes foreground.
-            startMapsInTaskView();
+//            startMapsInTaskView();
         }
     }
 
@@ -190,6 +232,7 @@ public class MCCarLauncher extends FragmentActivity {
     @Override
     protected void onDestroy() {
         super.onDestroy();
+        mCar.disconnect();
         ActivityTaskManager.getInstance().unregisterTaskStackListener(mTaskStackListener);
         if (mTaskView != null && mTaskViewReady) {
             mTaskView.release();
@@ -198,6 +241,8 @@ public class MCCarLauncher extends FragmentActivity {
     }
 
     private void startMapsInTaskView() {
+        return;
+/*
         if (mTaskView == null || !mTaskViewReady) {
             return;
         }
@@ -212,18 +257,37 @@ public class MCCarLauncher extends FragmentActivity {
         }
         try {
             ActivityOptions options = ActivityOptions.makeCustomAnimation(this,
-                    /* enterResId= */ 0, /* exitResId= */ 0);
+                     0,  0);
             // To show the Activity in TaskView, the Activity should be above the host task in
             // ActivityStack. This option only effects the host Activity is in resumed.
             options.setTaskAlwaysOnTop(true);
-            mTaskView.startActivity(
-                    PendingIntent.getActivity(this, /* requestCode= */ 0, getMapsIntent(),
-                            PendingIntent.FLAG_IMMUTABLE | PendingIntent.FLAG_UPDATE_CURRENT),
-                    /* fillInIntent= */ null, options, null /* launchBounds */);
+
+//            mTaskView.startActivity(
+//                    PendingIntent.getActivity(this,  0, getMapsIntent(),
+//                            PendingIntent.FLAG_IMMUTABLE | PendingIntent.FLAG_UPDATE_CURRENT),
+//                     null, options, null );
+
+//        mTaskView.startActivity(
+//                PendingIntent.getActivity(this, 0, getSpeedIntent(),
+//                        PendingIntent.FLAG_IMMUTABLE | PendingIntent.FLAG_UPDATE_CURRENT),
+//                 null, options, null );
+
+
         } catch (ActivityNotFoundException e) {
-            Log.w(TAG, "Maps activity not found", e);
+            //Log.w(TAG, "Maps activity not found", e);
+	    Log.w(TAG, "Speed activity not found", e);
         }
+*/        
     }
+
+
+/*
+private Intent getSpeedIntent() {
+    // SpeedActivity'yi mevcut paketten çağır
+    Intent i = new Intent(this, SpeedActivity.class);
+    return i;
+}
+*/
 
 /*
 private Intent getMapsIntent() { 
@@ -318,4 +382,32 @@ private Intent getMapsIntent() {
             }
         }
     }
+
+/**Added MC**/
+       @Override
+    public void onRequestPermissionsResult(int permsRequestCode, String[] permissions, int[] grantResults) {
+        Log.d(TAG, "onRequestPermissionsResult: called");
+
+        super.onRequestPermissionsResult(permsRequestCode, permissions, grantResults);
+        switch (permsRequestCode) {
+            case 200:
+                Log.d(TAG, "onRequestPermissionsResult: " + permsRequestCode);
+                boolean carPermission = grantResults[0] == PackageManager.PERMISSION_GRANTED;
+                if (carPermission) {
+                    mCar = Car.createCar(this);
+                    mCarPropertyManager = (CarPropertyManager) mCar.getCarManager(Car.PROPERTY_SERVICE);
+                    mCarPropertyManager.registerCallback(mCallBack, VehiclePropertyIds.PERF_VEHICLE_SPEED, CarPropertyManager.SENSOR_RATE_NORMAL);
+
+                    Log.d(TAG, "onRequestPermissionsResult: isConnected " + mCar.isConnected());
+                } else {
+                    requestPermissions(perms, permsRequestCode);
+                }
+                break;
+            default:
+                Log.d(TAG, "onRequestPermissionsResult: default " + permsRequestCode);
+                break;
+        }
+    }
+/****/
+
 }

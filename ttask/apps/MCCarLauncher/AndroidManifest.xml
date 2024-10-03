@@ -18,6 +18,9 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
           package="com.android.car.mccarlauncher">
 
+
+<uses-permission android:name="android.car.permission.CAR_SPEED"/>
+
     <uses-permission android:name="android.permission.SYSTEM_ALERT_WINDOW"/>
    
     <!-- System permission to access the CarProjectionManager for projection status-->
