@@ -1,0 +1,55 @@
+//////////////////////////////////////////////////////////////////////////////////////////////
+// Build the Java library
+java_library {
+    name: "com.android.mcandroidsystemservice.lib",
+    installable: true,  
+    aidl: {
+        local_include_dirs: ["src/aidl"],
+    },
+    srcs: [
+        "src/java/com/android/mcandroidsystemservice/IMCAndroidSystemServiceImpl.kt",
+        "src/java/com/android/mcandroidsystemservice/MCAndroidSystemServiceManager.kt",     
+    ] + ["src/aidl/**/I*.aidl"],
+
+    static_libs: [
+        "services",
+    ],
+    optimize: {
+        enabled: false,
+    },
+}
+//////////////////////////////////////////////////////////////////////////////////////////////
+//Build Service Manager App to host the service
+android_app {
+    name: "MCAndroidSystemService",
+    aidl: {
+        local_include_dirs: ["src/aidl"],
+    },
+    srcs: [
+        "src/java/com/android/mcandroidsystemservice/*.kt",
+        //"src/aidl/com/android/mcandroidsystemservice/*.aidl",
+    ],
+    manifest: "src/java/com/android/mcandroidsystemservice/AndroidManifest.xml", 
+    required: [
+        "com.android.mcandroidsystemservice.lib",
+    ],
+    static_libs: [
+        "com.android.mcandroidsystemservice.lib",
+        "services",
+    ],
+    uses_libs: [
+        "com.android.mcandroidsystemservice.lib",
+    ],
+    privileged: true,
+    certificate: "platform",
+    platform_apis: true,
+}
+//////////////////////////////////////////////////////////////////////////////////////////////
+// Copy com.android.mcandroidsystemservice.xml to /system/etc/permissions/
+prebuilt_etc {
+    name: "com.android.mcandroidsystemservice.xml",
+    src: "src/java/com/android/mcandroidsystemservice/com.android.mcandroidsystemservice.xml",
+    sub_dir: "permissions",
+    installable: true,
+    filename_from_src: true,
+}
