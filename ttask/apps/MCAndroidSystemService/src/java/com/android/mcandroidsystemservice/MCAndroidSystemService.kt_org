@@ -9,7 +9,8 @@ import android.os.IBinder
 import android.util.Log
 import com.android.mcandroidsystemservice.IMCAndroidSystemService
 
-class MCAndroidSystemService : Service() {
+//class MCAndroidSystemService : Service() {
+class MCAndroidSystemService : Application() {
     private var serviceImpl: IMCAndroidSystemServiceImpl? = null
     companion object {
         private val REMOTE_SERVICE_NAME: String = IMCAndroidSystemService::class.java.getName()
@@ -26,10 +27,10 @@ class MCAndroidSystemService : Service() {
 
     }
     /////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-    override fun onBind(intent: Intent): IBinder {
-        Log.d(TAG, "onBind: $intent")
-        return serviceImpl!!.asBinder()
-    }
+    //override fun onBind(intent: Intent): IBinder {
+    //    Log.d(TAG, "onBind: $intent")
+    //    return serviceImpl!!.asBinder()
+    //}
 
     /////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 }

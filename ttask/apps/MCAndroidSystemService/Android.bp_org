@@ -1,7 +1,7 @@
 //////////////////////////////////////////////////////////////////////////////////////////////
 // Build the Java library
 java_library {
-    name: "com.android.mcandroidsystemservice",
+    name: "com.android.mcandroidsystemservice.lib",
     installable: true,  
     aidl: {
         local_include_dirs: ["src/aidl"],
@@ -21,7 +21,7 @@ java_library {
 //////////////////////////////////////////////////////////////////////////////////////////////
 //Build Service Manager App to host the service
 android_app {
-    name: "MCAndroidSystemServiceApplication",
+    name: "mcandroidsystemservice",
     aidl: {
         local_include_dirs: ["src/aidl"],
     },
@@ -31,14 +31,14 @@ android_app {
     ],
     manifest: "src/java/com/android/mcandroidsystemservice/AndroidManifest.xml", 
     required: [
-        "com.android.mcandroidsystemservice",
+        "com.android.mcandroidsystemservice.lib",
     ],
     static_libs: [
-        "com.android.mcandroidsystemservice",
+        "com.android.mcandroidsystemservice.lib",
         "services",
     ],
     uses_libs: [
-        "com.android.mcandroidsystemservice",
+        "com.android.mcandroidsystemservice.lib",
     ],
     privileged: true,
     certificate: "platform",

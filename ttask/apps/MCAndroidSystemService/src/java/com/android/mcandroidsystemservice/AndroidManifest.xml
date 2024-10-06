@@ -1,10 +1,25 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-  package="com.android.mcandroidsystemservice"
-  android:sharedUserId="android.uid.system">                            
-  <application android:name=".MCAndroidSystemService" 
+    package="com.android.mcandroidsystemservice"
+    android:sharedUserId="android.uid.system">
+
+    <application
+        android:name=".MCAndroidSystemServiceApplication"
         android:persistent="true"
-        android:exported="true"> 
-    <uses-library android:name="com.android.mcandroidsystemservice.lib" />    
-  </application>
+        android:exported="true">
+        <uses-library android:name="com.android.mcandroidsystemservice" />    
+
+        <!-- Servis Tanımı -->
+        <service
+            android:name=".mcandroidsystemservice"
+            android:permission="android.permission.BIND_JOB_SERVICE"
+            android:exported="true">
+            <intent-filter>
+                <action android:name="com.android.mcandroidsystemservice.mcandroidsystemservice" />
+            </intent-filter>
+        </service>
+        
+    </application>
 </manifest>
+
+

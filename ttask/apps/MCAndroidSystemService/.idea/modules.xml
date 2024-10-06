@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+    <component name="ProjectModuleManager">
+        <modules>
+            <module fileurl="file:///$PROJECT_DIR$/MCAndroidSystemService.iml" filepath="$PROJECT_DIR$/MCAndroidSystemService.iml" />
+            <module fileurl="file:///$PROJECT_DIR$/dependencies.iml" filepath="$PROJECT_DIR$/dependencies.iml" />
+            <module fileurl="file:////home/mcihangir/android-12.0.0_r2/frameworks/base/framework_srcjars.iml" filepath="/home/mcihangir/android-12.0.0_r2/frameworks/base/framework_srcjars.iml" />
+            <module fileurl="file:////home/mcihangir/android-12.0.0_r2/vendor/mc/ttask/apps/MCAndroidSystemService/MCAndroidSystemService.iml" filepath="/home/mcihangir/android-12.0.0_r2/vendor/mc/ttask/apps/MCAndroidSystemService/MCAndroidSystemService.iml" />
+@ENABLE_DEBUGGER_MODULE@
+        </modules>
+    </component>
+</project>

@@ -15,3 +15,16 @@ allow mcdevice_domain kmsg_device:chr_file { write };
 #allow mcdevice_domain sysfs:file rw_file_perms;
 
 init_daemon_domain(mcdevice_domain)
+
+
+############################################################################################
+# This is for mcandroidsystemservice
+############################################################################################
+type mc_service, system_api_service,  service_manager_type;
+
+allow system_app mc_service:service_manager add;
+
+# Additional rules might be necessary based on how mc_service interacts with the system
+# Example: allow interaction with logd for logging
+allow mc_service logd:unix_dgram_socket sendto;
+

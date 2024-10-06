@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="VcsDirectoryMappings">
+    <mapping directory="$PROJECT_DIR$/../../../../../external/bouncycastle" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/../../../../../external/exoplayer" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/../../../../../external/jsr305" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/../../../../../external/libphonenumber" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/../../../../../external/okhttp" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/../../../../../external/protobuf" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/../../../../../external/rappor" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/../../../../../external/tagsoup" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/../../../../../frameworks/base" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/../../../../../frameworks/libs/modules-utils" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/../../../../../frameworks/libs/net" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/../../../../../libcore" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/../../../../../packages/modules/Connectivity" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/../../../../../packages/modules/IPsec" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/../../../../../packages/modules/Permission" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/../../../../../packages/modules/Scheduling" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/../../../../../packages/modules/SdkExtensions" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/../../../../../packages/modules/StatsD" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/../../../../../packages/modules/Wifi" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/../../../../../packages/modules/common" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/../../../../../packages/providers/MediaProvider" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/../../../../../system/tools/sysprop" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/../../../../../tools/metalava" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/../../../../../tools/platform-compat" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/../../.." vcs="Git" />
+  </component>
+</project>

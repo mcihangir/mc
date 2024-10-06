@@ -8,8 +8,8 @@ LOCAL_PATH := $(call my-dir)
 BOARD_SEPOLICY_DIRS += vendor/mc/ttask/sepolicy
 #BOARD_SEPOLICY_UNION, defines files that should be combined with existing files from AOSP of the same name.
 BOARD_SEPOLICY_UNION += file_contexts \
-			service_context \
-			mcdevice.te 
+                        service_contexts \
+                        mcdevice.te
 ######################################################################
 # mcdevice init scripts
 ######################################################################
@@ -25,4 +25,6 @@ INIT += /system/etc/init/init.mcdevice.rc
 PRODUCT_PACKAGES += mcnativeapp \
 		    mcandroidautoapp \
 		    MCCarLauncher \
+			com.android.mcandroidsystemservice \
+			MCAndroidSystemServiceApplication \
 

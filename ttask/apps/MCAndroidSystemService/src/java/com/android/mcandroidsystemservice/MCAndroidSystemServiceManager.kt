@@ -13,6 +13,7 @@ class MCAndroidSystemServiceManager {
     // Yapıcı fonksiyonu normal (public) yap
     // Constructor
     init {
+        Log.d(TAG, "This is Constructor for MCAndroidSystemServiceManager class")
         serviceInterface = IMCAndroidSystemService.Stub.asInterface(
             ServiceManager.getService(REMOTE_SERVICE_NAME)
         )
