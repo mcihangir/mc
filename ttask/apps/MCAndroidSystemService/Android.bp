@@ -53,3 +53,40 @@ prebuilt_etc {
     installable: true,
     filename_from_src: true,
 }
+//////////////////////////////////////////////////////////////////////////////////////////////
+android_app {
+    name: "clientsystemservice",
+    srcs: ["src/java/com/android/clientsystemservice/*.kt"],
+    resource_dirs: ["src/res"],
+    manifest: "src/java/com/android/clientsystemservice/AndroidManifest.xml", 
+
+    platform_apis: true,
+    certificate: "platform",
+    privileged: true,
+
+    required: [
+        "com.android.mcandroidsystemservice",
+    ],
+    static_libs: [        
+        "com.android.mcandroidsystemservice",
+        "com.google.android.material_material",
+        "androidx.appcompat_appcompat",                
+    ],
+    uses_libs: [
+        "com.android.mcandroidsystemservice",
+    ],
+
+    optimize: {
+        enabled: false,
+    },
+    dex_preopt: {
+        enabled: false,
+    },
+    product_variables: {
+        pdk: {
+            enabled: false,
+        },
+    },
+}
+
+
